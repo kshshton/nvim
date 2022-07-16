@@ -1,5 +1,6 @@
 ----- Requires -----
 require'lspconfig'.pyright.setup{}
+require'nvim-tree'.setup {}
 
 ----- Keymaps -----
 local function map(mode, lhs, rhs, opts)
@@ -13,14 +14,19 @@ end
 vim.g.mapleader = ' '
 
 map('i', 'jj', '<esc>')
-map('n', '<esc>', ':noh<cr>')
+map('n', '<esc>', '<cmd>noh<cr>')
+map('n', 'J', '<cmd>tabp<cr>')
+map('n', 'K', '<cmd>tabn<cr>')
 map('n', 'Y', 'y$')
-map('n', '<leader>r', ':so %<cr>')
+map('n', '<leader>r', '<cmd>so %<cr>')
 
 map ('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
 map ('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 map ('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 map ('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+
+map ('n', '<c-t>', '<cmd>NvimTreeToggle<cr>')
+map ('n', '`', '<cmd>NvimTreeFocus<cr>')
 
 ----- Options -----
 local g = vim.g
